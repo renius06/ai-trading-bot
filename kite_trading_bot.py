@@ -6,10 +6,10 @@ from typing import Dict, List, Optional, Tuple
 import ta
 from dataclasses import dataclass
 
-from src.trading_bot import TradingSignal, Position
-from src.kite_integration import KiteIntegration
-from src.ai_model import TradingAIModel
-from src.risk_management import RiskManager, RiskLimits
+from trading_bot import TradingSignal, Position
+from kite_integration import KiteIntegration
+from ai_model import TradingAIModel
+from risk_management import RiskManager, RiskLimits
 
 
 @dataclass

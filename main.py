@@ -7,13 +7,13 @@ import logging
 from datetime import datetime
 from pathlib import Path
 
-# Add src directory to path
-sys.path.append(str(Path(__file__).parent / 'src'))
+# Add current directory to path
+sys.path.append(str(Path(__file__).parent))
 
-from src.trading_bot import AITradingBot, TradingSignal
-from src.ai_model import TradingAIModel, EnsembleModel
-from src.risk_management import RiskManager, RiskLimits
-from src.kite_trading_bot import KiteTradingBot, KiteTradingConfig
+from trading_bot import AITradingBot, TradingSignal
+from ai_model import TradingAIModel, EnsembleModel
+from risk_management import RiskManager, RiskLimits
+from kite_trading_bot import KiteTradingBot, KiteTradingConfig
 from config import (
     TRADING_CONFIG, 
     EXCHANGE_CONFIG, 

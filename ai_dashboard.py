@@ -17,13 +17,15 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, classification_report
 import joblib
 
-# Add src directory to path
-sys.path.append(str(Path(__file__).parent.parent))
+# Add current directory to path
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent))
 
-from src.trading_bot import AITradingBot
-from src.kite_trading_bot import KiteTradingBot, KiteTradingConfig
-from src.ai_model import TradingAIModel
-from src.risk_management import RiskManager, RiskLimits
+from trading_bot import AITradingBot
+from kite_trading_bot import KiteTradingBot, KiteTradingConfig
+from ai_model import TradingAIModel
+from risk_management import RiskManager, RiskLimits
 from config import TRADING_CONFIG, EXCHANGE_CONFIG, RISK_CONFIG, AI_CONFIG, SYMBOLS_CONFIG
 
 

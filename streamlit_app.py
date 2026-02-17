@@ -3,9 +3,34 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
+from plotly.subplots import make_subplots
+import plotly.figure_factory as ff
 from datetime import datetime, timedelta
-import os
-from dotenv import load_dotenv
+import sys
+from pathlib import Path
+import sqlite3
+import json
+import time
+from typing import Dict, List, Optional
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix, classification_report
+import joblib
+
+# Add current directory to path
+sys.path.append(str(Path(__file__).parent))
+
+from trading_bot import AITradingBot
+from kite_trading_bot import KiteTradingBot, KiteTradingConfig
+from ai_model import TradingAIModel
+from risk_management import RiskManager, RiskLimits
+from config import TRADING_CONFIG, EXCHANGE_CONFIG, RISK_CONFIG, AI_CONFIG, SYMBOLS_CONFIG
+from data_fetcher import MarketDataFetcher
+
+# Initialize data fetcher with new API key
+fetcher = MarketDataFetcher()
+fetcher.api_key = '1wupbdnax2j9quy1'
+fetcher.api_secret = 'b5mgbdupm9votducd1kijvsrg6jekonj'
 
 # Load environment variables
 load_dotenv()
@@ -55,7 +80,8 @@ with col1:
     st.metric("Bot Status", "🟢 Active", delta="Running")
 
 with col2:
-    st.metric("Market Status", "🟢 Open", delta="Live")
+    if st.sidebar.button("🚀 Start Trading", type="primary"):
+        st.success("Trading started!")
 
 with col3:
     st.metric("API Status", "✅ Connected", delta="All APIs")
